@@ -35,6 +35,10 @@ Muitos jovens encontram dificuldade para localizar oportunidades de emprego, est
 
 O Conecta+ propõe centralizar essas oportunidades e aproximar jovens de pessoas, iniciativas e conteúdos que apoiem seu desenvolvimento pessoal e profissional.
 
+## O objetivo
+
+Desenvolver uma plataforma digital que facilite o acesso dos jovens a oportunidades profissionais, educacionais e sociais, incentivando a aprendizagem, o desenvolvimento de habilidades e o empreendedorismo.
+
 ## A proposta
 
 Criar um espaço acessível e acolhedor em que jovens possam apresentar seus interesses e habilidades, encontrar oportunidades locais, aprender, receber orientação e compartilhar iniciativas com a comunidade.
