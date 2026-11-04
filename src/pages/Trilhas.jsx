@@ -2,13 +2,12 @@ import { Link } from 'react-router-dom'
 import logo from '../images/conecta-logo.png'
 
 const menuItems = [
-  { label: 'Início', icon: 'fa-house', to: '#' },
-  { label: 'Trilhas', icon: 'fa-book-open', to: '#', active: true },
-  { label: 'Meu Espaço', icon: 'fa-chart-line', to: '#' },
-  { label: 'Perfil', icon: 'fa-user', to: '#' },
+  { label: 'Início', icon: 'fa-house', to: '/' },
+  { label: 'Trilhas', icon: 'fa-book-open', to: '/trilhas', active: true },
+  { label: 'Meu Espaço', icon: 'fa-chart-line', to: '/meu-espaco' },
+  { label: 'Perfil', icon: 'fa-user', to: '/perfil' },
 ]
 
-// As classes precisam estar escritas por completo para o Tailwind reconhecê-las
 const trilhas = [
   {
     to: '/trilha-curriculo',
