@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="static/images/conecta-banner.svg" alt="Conecta+ — conexões que aproximam jovens de novas oportunidades" width="100%">
+  <img src="src/images/conecta-banner.svg" alt="Conecta+ — conexões que aproximam jovens de novas oportunidades" width="100%">
 
   <p>
     <a href="https://github.com/Avena-JABAL/empregeek">
