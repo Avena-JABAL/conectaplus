@@ -58,14 +58,29 @@ Criar um espaço acessível e acolhedor em que jovens possam apresentar seus int
    ```
 
 2. Abra a pasta do projeto no VS Code.
-3. Inicie um servidor local para arquivos estáticos, como a extensão **Live Server**.
-4. Acesse `views/landingpage.html` pelo servidor local.
+3. Instale as dependências exatamente como registradas no lockfile:
+
+   ```bash
+   npm ci
+   ```
+
+   Use `npm install` ao adicionar ou atualizar dependências.
+4. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   ```
+
+   O Vite abrirá a página inicial em `http://localhost:5173/`.
+
+> Requisito: Node.js 20.19+ (ou 22.12+) e npm. O `package-lock.json` registra as dependências; `requirements.txt` não se aplica a este projeto JavaScript.
 
 ## Tecnologias
 
 - **HTML5** — estrutura das páginas.
 - **CSS3** — estilos, cores e layouts responsivos.
 - **JavaScript** — pasta preparada para scripts do projeto.
+- **Vite** — servidor local de desenvolvimento.
 
 
 
