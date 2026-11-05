@@ -1,13 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../css/trilhas.css'
-import logo from '../images/conecta-logo.png'
-
-const menuItems = [
-  { label: 'Início', icon: 'fa-house', to: '#' },
-  { label: 'Trilhas', icon: 'fa-book-open', to: '#', active: true },
-  { label: 'Meu Espaço', icon: 'fa-chart-line', to: '#' },
-  { label: 'Perfil', icon: 'fa-user', to: '#' },
-]
+import Sidebar from '../components/Sidebar'
 
 const trilhas = [
   {
@@ -63,32 +56,7 @@ const trilhas = [
 export default function Trilhas() {
   return (
     <div className="app-container">
-      <aside className="sidebar">
-        <div className="logo">
-          <img src={logo} alt="Logo Conecta+" />
-          <span>
-            Conecta<span className="plus">+</span>
-          </span>
-        </div>
-
-        <nav className="nav-menu">
-          {menuItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.to}
-              className= {`nav-item${item.active ? ' active' : ''} no-underline!`}
-            >
-              <i className={`fa-solid ${item.icon}`}></i> {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="nav-footer">
-          <Link to="/logoff" className="nav-item no-underline!">
-            <i className="fa-solid fa-right-from-bracket"></i> Sair
-          </Link>
-        </div>
-      </aside>
+      <Sidebar active="Trilhas" />
 
       <main className="main-content">
         <header className="top-header">
@@ -113,7 +81,7 @@ export default function Trilhas() {
           <p>Escolha uma trilha e comece a desenvolver suas habilidades.</p>
         </section>
 
-        <div className="cards-grid link">
+        <div className="cards-grid">
           {trilhas.map((trilha) => (
             <Link
               key={trilha.to}
