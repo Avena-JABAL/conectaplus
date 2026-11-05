@@ -49,19 +49,6 @@
   --color-card-cyan-icon: #06b6d4;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-body);
-    height: 100vh;
-    overflow: hidden;
-}
 
 .app-container {
     display: flex;
@@ -86,6 +73,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-right: 20px;
 }
 
 .logo img{

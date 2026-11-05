@@ -21,7 +21,7 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+.page-container {
     font-family: 'Nunito Sans', Arial, sans-serif;
     background: #f4f8ff;
     color: var(--text);
