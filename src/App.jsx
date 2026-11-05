@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Logoff from "./pages/Logoff";
+import RecuperarSenha from "./pages/recuperar-senha";
 
 const MeuEspaco = () => (
   <div className="p-10 text-center">Meu Espaço - Em desenvolvimento</div>
@@ -22,6 +23,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/logoff" element={<Logoff />} />
+      <Route path="/recuperar-senha" element={<RecuperarSenha />} />
     </Routes>
   );
 }
