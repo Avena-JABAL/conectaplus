@@ -15,7 +15,35 @@ export default function Cadastro() {
 
   function cadastrar(e) {
     e.preventDefault()
-    
+
+    if (senha !== confirmarSenha) {
+      alert('As senhas não são iguais!')
+      return
+    }
+
+    const emailExiste = usuarios.some(
+      (usuario) => usuario.email === email
+    )
+
+    if (emailExiste) {
+      alert('Este e-mail já está cadastrado!')
+      return
+    }
+
+    const novoUsuario = {
+      nome,
+      email,
+      senha
+    }
+
+    setUsuarios([...usuarios, novoUsuario])
+
+    alert('Cadastro realizado com sucesso!')
+
+    setName('')
+    setEmail('')
+    setSenha('')
+    setConfirmarSenha('')
   }
 
   return (
@@ -25,7 +53,7 @@ export default function Cadastro() {
       topNote={<Link to="/login">← Voltar para o login</Link>}
       quote="Juntos por mais oportunidades!"
     >
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={cadastrar}>
         <Field
           id="nome"
           label="Nome completo"
@@ -34,7 +62,7 @@ export default function Cadastro() {
           autoComplete="name"
           required
           value={nome}
-          onChage={(e) => setName(e.target.vcalue)}
+          onChange={(e) => setName(e.target.value)}
         />
         <Field
           id="email"
@@ -54,7 +82,7 @@ export default function Cadastro() {
           autoComplete="new-password"
           required
           value={senha}
-          onChage={(e) => setSenha(e.target.value)}
+          onChange={(e) => setSenha(e.target.value)}
         />
         <Field
           id="confirmarSenha"
@@ -67,9 +95,9 @@ export default function Cadastro() {
           onChange={(e) => setConfirmarSenha(e.target.value)}
         />
 
-        <Link className="button" to="/login">
+        <button type="submit" className="button">
           Cadastrar
-        </Link>
+        </button>
       </form>
     </AuthLayout>
   )
