@@ -1,6 +1,18 @@
+import { useState } from 'react'
 import "../css/Register-System.css";
 
 export default function RecuperarSenha() {
+  const [email, setEmail] = useState('')
+  const [mensagem, setMensagem] = useState('')
+
+  function recuperar(e) {
+    e.preventDefault()
+
+    setMensagem(
+      `Se o e-mail ${email} estiver cadastrado, enviaremos um link de recuperação.`
+    )
+  } 
+
   return (
     <main className="auth-card recovery">
       <section className="auth-main">
@@ -33,7 +45,7 @@ export default function RecuperarSenha() {
             Digite seu e-mail e enviaremos um link para você redefinir sua senha.
           </p>
 
-          <form action="/login" method="get">
+          <form onSubmit={recuperar}>
             <div className="field">
               <label htmlFor="email">E-mail</label>
 
@@ -44,12 +56,15 @@ export default function RecuperarSenha() {
                 placeholder="Digite seu e-mail"
                 autoComplete="email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             <button className="button" type="submit">
               Enviar link
             </button>
+            {mensagem && <p className="form-success">{mensagem}</p>}
           </form>
         </div>
       </section>

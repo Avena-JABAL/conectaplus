@@ -345,3 +345,8 @@ h1 {
     flex-direction: column;
   }
 }
+  .form-error {
+    margin-bottom: 16px;
+    color: #c62828;
+    font-size: 13px;
+}

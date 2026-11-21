@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import '../css/trilhas.css'
 import Sidebar from '../components/Sidebar'
 
+
 const trilhas = [
   {
     to: '/trilha-curriculo',

@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
-import "../css/logoff.css";
-import logo from "../images/conecta-logo.png";
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+import "../css/logoff.css"
+import logo from "../images/conecta-logo.png"
 
 export default function Logoff() {
+  const { setUsuarioLogado } = useAuth()
+
+  useEffect(() => {
+    setUsuarioLogado(null)
+  }, [setUsuarioLogado])
+
   return (
     <div className="logoff-container">
       <main className="page">
