@@ -288,3 +288,12 @@
         grid-template-columns: 1fr;
     }
 }
+
+.nav-footer button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}

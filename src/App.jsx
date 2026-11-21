@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Logoff from "./pages/Logoff";
 import RecuperarSenha from "./pages/recuperar-senha";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const MeuEspaco = () => (
   <div className="p-10 text-center">Meu Espaço - Em desenvolvimento</div>
@@ -17,7 +18,14 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/trilhas" element={<Trilhas />} />
+      <Route
+        path="/trilhas"
+        element={
+          <ProtectedRoute>
+            <Trilhas />
+          </ProtectedRoute>
+        }
+      />  
       <Route path="/meu-espaco" element={<MeuEspaco />} />
       <Route path="/perfil" element={<Perfil />} />
       <Route path="/login" element={<Login />} />

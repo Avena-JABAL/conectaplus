@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../css/trilhas.css'
 import logo from '../images/conecta-logo.png'
 
@@ -10,6 +10,13 @@ const menuItems = [
 ]
 
 export default function Sidebar({ active }) {
+    const navigate = useNavigate()
+    
+    function sair() {
+      navigate('/logoff', { replace: true })
+    }
+
+
   return (
     <aside className="sidebar">
       <div className="logo">
@@ -34,9 +41,13 @@ export default function Sidebar({ active }) {
       </nav>
 
       <div className="nav-footer">
-        <Link to="/logoff" className="nav-item no-underline!">
-          <i className="fa-solid fa-right-from-bracket"></i> Sair
-        </Link>
+        <button
+            type="button"
+            className="nav-item no-underline!"
+            onClick={sair}
+        >
+            <i className="fa-solid fa-right-from-bracket"></i> Sair
+        </button>
       </div>
     </aside>
   )

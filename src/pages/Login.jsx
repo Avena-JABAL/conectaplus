@@ -1,8 +1,38 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import AuthLayout from '../components/AuthLayout'
 import Field from '../components/Field'
+import { useAuth } from '../context/AuthContext'
 
 export default function Login() {
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const [erro, setErro] = useState('')
+  const { usuarios, setUsuarioLogado } = useAuth()
+  const navigate = useNavigate()
+
+  function entrar(e) {
+    e.preventDefault()
+
+    setErro('')
+
+    const usuarioEncontrado = usuarios.find(
+      (usuario) =>
+        usuario.email.toLowerCase() === email.trim().toLowerCase() &&
+        usuario.senha === senha
+    )
+
+    if (!usuarioEncontrado) {
+      setErro('E-mail ou senha inválidos.')
+      return
+    }
+
+    setUsuarioLogado(usuarioEncontrado)
+    navigate('/trilhas')
+  }
+
+
+
   return (
     <AuthLayout
       title="Olá de novo!"
@@ -13,13 +43,15 @@ export default function Login() {
         </>
       }
     >
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={entrar}>
         <Field
           id="email"
           label="E-mail"
           type="email"
           placeholder="Digite seu e-mail"
           autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <Field
@@ -28,9 +60,11 @@ export default function Login() {
           type="password"
           placeholder="Digite sua senha"
           autoComplete="current-password"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
           required
         />
-
+        {erro && <p className="form-error">{erro}</p>}
         <div className="form-options">
           <label className="remember">
             <input type="checkbox" name="lembrar" /> Lembrar de mim
@@ -38,9 +72,9 @@ export default function Login() {
           <Link to="/recuperar-senha">Esqueci minha senha</Link>
         </div>
 
-        <Link className="button" to="/trilhas">
+        <button className="button" type="submit">
           Entrar
-        </Link>
+        </button>
       </form>
     </AuthLayout>
   )
