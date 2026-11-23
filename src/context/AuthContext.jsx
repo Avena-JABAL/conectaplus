@@ -6,6 +6,27 @@ export function AuthProvider({children}) {
     const [usuarios, setUsuarios] = useState([]);
     const [usuarioLogado, setUsuarioLogado] = useState(null);
 
+    function cadastrar(novoUsuario) {
+        setUsuarios([...usuarios, novoUsuario]);
+    }
+
+    function login(email, senha) {
+        const usuario = usuarios.find(
+            (u) => u.email === email && u.senha === senha
+        );
+        
+        if (usuario) {
+            setUsuarioLogado(usuario);
+            return true;
+        }
+        
+        return false;
+    }
+
+    function logout() {
+        setUsuarioLogado(null);
+    }
+
     return (
         <AuthContext.Provider
           value={{
@@ -13,6 +34,9 @@ export function AuthProvider({children}) {
             setUsuarios,
             usuarioLogado,
             setUsuarioLogado,
+            cadastrar,
+            login,
+            logout,
           }}
           
         >

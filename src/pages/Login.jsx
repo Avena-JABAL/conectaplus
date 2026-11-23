@@ -1,9 +1,31 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthLayout from '../components/AuthLayout'
 import Field from '../components/Field'
+import { useAuth } from "../context/AuthContext";
+import { useState } from "react";
 
 export default function Login() {
-  return (
+  const { login } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [erro, setErro] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleLogin(e) {
+    e.preventDefault();
+    setErro("");
+    
+    const resultado = login(email, senha);
+      if (resultado) {
+        navigate("/trilhas");
+      } else {
+        setErro("E-mail ou senha incorretos.");
+      }
+    }
+    
+    return (
     <AuthLayout
       title="Olá de novo!"
       intro="Entre na sua conta e continue sua jornada com a gente."
@@ -13,7 +35,7 @@ export default function Login() {
         </>
       }
     >
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleLogin}>
         <Field
           id="email"
           label="E-mail"
@@ -21,6 +43,8 @@ export default function Login() {
           placeholder="Digite seu e-mail"
           autoComplete="email"
           required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Field
           id="senha"
@@ -29,7 +53,11 @@ export default function Login() {
           placeholder="Digite sua senha"
           autoComplete="current-password"
           required
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
         />
+        
+        {erro && <p className="error-message">{erro}</p>}
 
         <div className="form-options">
           <label className="remember">
@@ -38,9 +66,9 @@ export default function Login() {
           <Link to="/recuperar-senha">Esqueci minha senha</Link>
         </div>
 
-        <Link className="button" to="/trilhas">
+        <button className="button" type="submit">
           Entrar
-        </Link>
+        </button>
       </form>
     </AuthLayout>
   )
