@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import AuthLayout from '../components/AuthLayout'
 import Field from '../components/Field'
@@ -10,6 +10,7 @@ export default function Login() {
   const [erro, setErro] = useState('')
   const { usuarios, setUsuarioLogado } = useAuth()
   const navigate = useNavigate()
+  const { state } = useLocation()
 
   function entrar(e) {
     e.preventDefault()
@@ -27,8 +28,9 @@ export default function Login() {
       return
     }
 
-    setUsuarioLogado(usuarioEncontrado)
-    navigate('/trilhas')
+    const { nome, email: emailUsuario } = usuarioEncontrado
+    setUsuarioLogado({ nome, email: emailUsuario })
+    navigate(state?.destino ?? '/trilhas', { replace: true })
   }
 
 
@@ -43,6 +45,7 @@ export default function Login() {
         </>
       }
     >
+      {state?.cadastroConcluido && <p role="status">Cadastro concluído. Entre com os dados fictícios que você criou.</p>}
       <form onSubmit={entrar}>
         <Field
           id="email"
@@ -64,11 +67,8 @@ export default function Login() {
           onChange={(e) => setSenha(e.target.value)}
           required
         />
-        {erro && <p className="form-error">{erro}</p>}
+        {erro && <p className="form-error" role="alert">{erro}</p>}
         <div className="form-options">
-          <label className="remember">
-            <input type="checkbox" name="lembrar" /> Lembrar de mim
-          </label>
           <Link to="/recuperar-senha">Esqueci minha senha</Link>
         </div>
 

@@ -1,82 +1,43 @@
 import { useState } from 'react'
-import "../css/Register-System.css";
+import { Link } from 'react-router-dom'
+import AuthLayout from '../components/AuthLayout'
+import Field from '../components/Field'
 
 export default function RecuperarSenha() {
   const [email, setEmail] = useState('')
-  const [mensagem, setMensagem] = useState('')
+  const [enviado, setEnviado] = useState(false)
 
-  function recuperar(e) {
-    e.preventDefault()
-
-    setMensagem(
-      `Se o e-mail ${email} estiver cadastrado, enviaremos um link de recuperação.`
-    )
-  } 
+  function recuperar(evento) {
+    evento.preventDefault()
+    setEnviado(true)
+  }
 
   return (
-    <main className="auth-card recovery">
-      <section className="auth-main">
-        <header className="topline">
-          <a
-            className="brand"
-            href="/"
-            aria-label="Conecta+, página inicial"
-          >
-            <span className="brand-mark" aria-hidden="true">
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-            </span>
-            Conecta+
-          </a>
-
-          <a className="back-link" href="/login">
-            ← Voltar para o login
-          </a>
-        </header>
-
-        <div className="form-wrap">
-          <h1>Recuperar senha</h1>
-
-          <p className="intro">
-            Digite seu e-mail e enviaremos um link para você redefinir sua senha.
+    <AuthLayout
+      title="Recuperar senha"
+      intro="Digite um e-mail fictício para simular uma solicitação de recuperação."
+      topNote={<Link to="/login">← Voltar para o login</Link>}
+    >
+      <form onSubmit={recuperar}>
+        <Field
+          id="email"
+          label="E-mail"
+          type="email"
+          autoComplete="email"
+          value={email}
+          onChange={(evento) => {
+            setEmail(evento.target.value)
+            setEnviado(false)
+          }}
+          required
+        />
+        <button className="button" type="submit">Simular envio</button>
+        {enviado && (
+          <p className="form-success" role="status">
+            Solicitação simulada. Nenhum e-mail foi enviado.
           </p>
-
-          <form onSubmit={recuperar}>
-            <div className="field">
-              <label htmlFor="email">E-mail</label>
-
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Digite seu e-mail"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-
-            <button className="button" type="submit">
-              Enviar link
-            </button>
-            {mensagem && <p className="form-success">{mensagem}</p>}
-          </form>
-        </div>
-      </section>
-
-      <aside className="illustration">
-        <div className="quote">
-          <div className="envelope" aria-hidden="true">
-            ✉
-          </div>
-          Não se preocupe! Vamos te ajudar a recuperar o acesso à sua conta.
-        </div>
-      </aside>
-    </main>
-  );
+        )}
+      </form>
+    </AuthLayout>
+  )
 }

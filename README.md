@@ -2,7 +2,7 @@
   <img src="src/images/conecta-banner.svg" alt="Conecta+ — conexões que aproximam jovens de novas oportunidades" width="100%">
 
   <p>
-    <a href="https://github.com/Avena-JABAL/empregeek">
+    <a href="https://github.com/Avena-JABAL/conectaplus">
       <img src="https://img.shields.io/badge/GitHub-Reposit%C3%B3rio-101c62?style=for-the-badge&logo=github" alt="Repositório no GitHub">
     </a>
     <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-5035f5?style=for-the-badge" alt="Projeto em desenvolvimento">
@@ -58,7 +58,7 @@ Criar um espaço acessível e acolhedor em que jovens possam apresentar seus int
 1. Faça o clone do repositório:
 
    ```bash
-   git clone https://github.com/Avena-JABAL/empregeek.git
+   git clone https://github.com/Avena-JABAL/conectaplus.git
    ```
 
 2. Abra a pasta do projeto no VS Code.
@@ -88,6 +88,26 @@ Criar um espaço acessível e acolhedor em que jovens possam apresentar seus int
 
 
 
+## Semana 3 — Autenticação simulada
+
+O fluxo usa formulários React e React Router. Cadastros fictícios e sessão ficam na memória da aplicação e são descartados ao recarregar a página. Use dados fictícios durante a demonstração.
+
+| Entregável | Critério de aceitação |
+| --- | --- |
+| Cadastro | Valida nome, e-mail, senha de pelo menos seis caracteres e confirmação. Recusa e-mail duplicado e encaminha cadastros válidos ao login. |
+| Login | Exibe erro para credenciais inválidas e abre a rota protegida solicitada ou a página de Trilhas quando as credenciais conferem. |
+| Recuperação de senha | Aceita um e-mail válido e confirma a simulação na interface. |
+| Área restrita | Trilhas, Meu Espaço e Perfil redirecionam ao login quando acessados sem sessão. Meu Espaço e Perfil ainda exibem telas provisórias. |
+| Logout | A ação Sair encerra a sessão e exibe a confirmação. Reabrir uma rota protegida exige login. |
+
+### Roteiro de demonstração
+
+1. Abra `/perfil` sem sessão e confira o redirecionamento ao login.
+2. Em `/cadastro`, tente confirmar uma senha diferente e confira o erro. Em seguida, cadastre um nome fictício, o e-mail `demo@example.com` e a senha fictícia `teste123`.
+3. Tente entrar com uma senha incorreta. Depois entre com os dados cadastrados e confira a página de Trilhas.
+4. Use **Sair** e tente reabrir `/trilhas`. Confirme que o login é solicitado.
+5. Em **Esqueci minha senha**, envie um e-mail fictício e confira o aviso de simulação.
+
 ## Impacto esperado
 
 - Facilitar o acesso dos jovens a oportunidades locais.
@@ -97,4 +117,4 @@ Criar um espaço acessível e acolhedor em que jovens possam apresentar seus int
 
 ## Repositório
 
-[Acesse o Conecta+ no GitHub](https://github.com/Avena-JABAL/empregeek)
+[Acesse o Conecta+ no GitHub](https://github.com/Avena-JABAL/conectaplus)
