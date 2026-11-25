@@ -1,21 +1,23 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import '../css/trilhas.css'
 import logo from '../images/conecta-logo.png'
 
 const menuItems = [
   { label: 'Início', icon: 'fa-house', to: '#' },
-  { label: 'Trilhas', icon: 'fa-book-open', to: '#' },
-  { label: 'Meu Espaço', icon: 'fa-chart-line', to: '#' },
-  { label: 'Perfil', icon: 'fa-user', to: '#' },
+  { label: 'Trilhas', icon: 'fa-book-open', to: '/trilhas' },
+  { label: 'Meu Espaço', icon: 'fa-chart-line', to: '/meu-espaco' },
+  { label: 'Perfil', icon: 'fa-user', to: '/perfil' },
 ]
 
 export default function Sidebar({ active }) {
-    const navigate = useNavigate()
-    
-    function sair() {
-      navigate('/logoff', { replace: true })
-    }
+  const navigate = useNavigate()
+  const { setUsuarioLogado } = useAuth()
 
+  function sair() {
+    setUsuarioLogado(null)
+    navigate('/logoff', { replace: true })
+  }
 
   return (
     <aside className="sidebar">
