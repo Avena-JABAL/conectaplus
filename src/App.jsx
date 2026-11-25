@@ -18,16 +18,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route
-        path="/trilhas"
-        element={
-          <ProtectedRoute>
-            <Trilhas />
-          </ProtectedRoute>
-        }
-      />  
-      <Route path="/meu-espaco" element={<MeuEspaco />} />
-      <Route path="/perfil" element={<Perfil />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/trilhas" element={<Trilhas />} />
+        <Route path="/meu-espaco" element={<MeuEspaco />} />
+        <Route path="/perfil" element={<Perfil />} />
+      </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/logoff" element={<Logoff />} />
