@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthLayout from '../components/AuthLayout'
 import Field from '../components/Field'
 import { useAuth } from '../context/AuthContext'
 
 export default function Cadastro() {
+  const navigate = useNavigate()
 
   const [nome, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -21,8 +22,15 @@ export default function Cadastro() {
       return
     }
 
+    if (senha.length < 6) {
+      alert('A senha deve ter pelo menos 6 caracteres!')
+      return
+    }
+
+    const emailNormalizado = email.trim().toLowerCase()
+
     const emailExiste = usuarios.some(
-      (usuario) => usuario.email === email
+      (usuario) => usuario.email === emailNormalizado
     )
 
     if (emailExiste) {
@@ -31,9 +39,9 @@ export default function Cadastro() {
     }
 
     const novoUsuario = {
-      nome,
-      email,
-      senha
+      nome: nome.trim(),
+      email: emailNormalizado,
+      senha,
     }
 
     setUsuarios([...usuarios, novoUsuario])
@@ -44,6 +52,8 @@ export default function Cadastro() {
     setEmail('')
     setSenha('')
     setConfirmarSenha('')
+
+    navigate('/login')
   }
 
   return (
