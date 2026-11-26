@@ -28,8 +28,8 @@ export default function Login() {
       return
     }
 
-    const { nome, email: emailUsuario } = usuarioEncontrado
-    setUsuarioLogado({ nome, email: emailUsuario })
+    const { nome, email: emailUsuario, formacao, interesses, habilidades } = usuarioEncontrado
+    setUsuarioLogado({ nome, email: emailUsuario, formacao, interesses, habilidades })
     navigate(state?.destino ?? '/trilhas', { replace: true })
   }
 
