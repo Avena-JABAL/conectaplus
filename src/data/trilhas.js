@@ -78,6 +78,7 @@ export const trilhas = [
     descricao: 'Aprenda a organizar seu dinheiro e planejar seu futuro.',
     categoria: 'Finanças',
     cor: 'card-cyan',
+    icone: 'fa-wallet',
     },
 
 ]
