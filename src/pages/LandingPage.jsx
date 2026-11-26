@@ -1,4 +1,5 @@
 import '../css/landingpage.css';
+import { Link } from 'react-router-dom';
 import conectaLogo from '../images/conecta-logo.png';
 import jovensConecta from '../images/jovens-conecta.png';
 
@@ -6,7 +7,7 @@ export default function LandingPage() {
   return (
     <>
       <header className="header">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <img
             src={conectaLogo}
             alt="Logo Conecta+"
@@ -15,23 +16,23 @@ export default function LandingPage() {
           <span>
             Conecta<span className="plus">+</span>
           </span>
-        </a>
+        </Link>
 
         <nav className="navigation">
-          <a href="/" className="active">
+          <Link to="/" className="active">
             Início
-          </a>
-          <a href="#trilhas">Trilhas</a>
+          </Link>
+          <Link to="/trilhas">Trilhas</Link>
           <a href="#sobre">Sobre</a>
         </nav>
 
         <div className="header-actions">
-          <a href="/login" className="login-link">
+          <Link to="/login" className="login-link">
             Entrar
-          </a>
-          <a href="/cadastro" className="button button-primary">
+          </Link>
+          <Link to="/cadastro" className="button button-primary">
             Cadastrar
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -53,9 +54,9 @@ export default function LandingPage() {
             </p>
 
             <div className="hero-buttons">
-              <a href="#trilhas" className="button button-primary">
+              <Link to="/trilhas" className="button button-primary">
                 Explorar trilhas
-              </a>
+              </Link>
 
               <a href="#sobre" className="button button-secondary">
                 Saiba mais
@@ -75,9 +76,9 @@ export default function LandingPage() {
         <section className="opportunities" id="trilhas">
           <div className="section-heading">
             <h2>Oportunidades em destaque</h2>
-            <a href="#trilhas" className="view-all">
+            <Link to="/oportunidades" className="view-all">
               Ver todas <span>→</span>
-            </a>
+            </Link>
           </div>
 
           <div className="cards-grid">
@@ -151,20 +152,20 @@ export default function LandingPage() {
             desenvolver habilidades e explorar possibilidades
             para construir o próprio futuro.
           </p>
-          <a href="/cadastro" className="button button-primary">
+          <Link to="/cadastro" className="button button-primary">
             Faça parte da comunidade
-          </a>
+          </Link>
         </section>
       </main>
 
       <footer className="footer">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <img
             src={conectaLogo}
             alt="Logo Conecta+"
             className="logo-image"
           />
-        </a>
+        </Link>
         <p>Conectando jovens a novas possibilidades.</p>
         <span>© 2026 Conecta+ · Projeto acadêmico</span>
       </footer>

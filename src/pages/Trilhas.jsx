@@ -1,10 +1,16 @@
 
+import { useState } from 'react'
+import { useAuth } from '../context/AuthContext'
 import { Link } from 'react-router-dom'
 import '../css/trilhas.css'
 import Sidebar from '../components/Sidebar'
 import { trilhas } from '../data/trilhas'
 
 export default function Trilhas() {
+  const [busca, setBusca] = useState('')
+  const { usuarioLogado } = useAuth()
+  const normalizar = texto => texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+  const filtradas = trilhas.filter(trilha => normalizar(trilha.titulo + ' ' + trilha.descricao + ' ' + trilha.categoria).includes(normalizar(busca.trim())))
   return (
     <div className="app-container">
       <Sidebar active="Trilhas" />
@@ -15,15 +21,15 @@ export default function Trilhas() {
             <i className="fa-solid fa-magnifying-glass"></i>
             <input
               type="text"
-              placeholder="Buscar trilhas, cursos e comunidades..."
+              placeholder="Buscar trilhas..."
+              aria-label="Buscar trilhas"
+              value={busca}
+              onChange={e => setBusca(e.target.value)}
             />
           </div>
 
           <div className="user-actions">
-            <button className="icon-btn" type="button">
-              <i className="fa-regular fa-bell"></i>
-            </button>
-            <div className="user-avatar">J</div>
+            <Link to="/perfil" className="user-avatar" aria-label="Meu perfil">{usuarioLogado?.nome?.charAt(0).toUpperCase() || 'U'}</Link>
           </div>
         </header>
 
@@ -34,8 +40,9 @@ export default function Trilhas() {
           </p>
         </section>
 
+        {filtradas.length === 0 && <p className="empty-state" role="status">Nenhuma trilha encontrada.</p>}
         <div className="cards-grid">
-          {trilhas.map((trilha) => (
+          {filtradas.map((trilha) => (
             <Link
               key={trilha.id}
               to={`/trilhas/${trilha.id}`}

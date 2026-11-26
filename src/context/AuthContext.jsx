@@ -1,32 +1,30 @@
-
 import { createContext, useContext, useState } from 'react'
+import { dadosDaConta, atualizarDadosDaConta } from './dadosDaConta.js'
 
 const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
-  // Estados relacionados à autenticação
   const [usuarios, setUsuarios] = useState([])
   const [usuarioLogado, setUsuarioLogado] = useState(null)
+  const [dados, setDados] = useState({})
+  const email = usuarioLogado?.email
+  const { interesses, modulosConcluidos } = dadosDaConta(dados, email)
 
-  // IDs das oportunidades que o usuário marcou como interesse
-  const [interesses, setInteresses] = useState([])
-
-  // Módulos concluídos, organizados pelo ID de cada trilha
-  const [modulosConcluidos, setModulosConcluidos] = useState({})
+  function atualizarCampo(campo, valor) {
+    if (email) setDados(atuais => atualizarDadosDaConta(atuais, email, campo, valor))
+  }
 
   return (
-    <AuthContext.Provider
-      value={{
-        usuarios,
-        setUsuarios,
-        usuarioLogado,
-        setUsuarioLogado,
-        interesses,
-        setInteresses,
-        modulosConcluidos,
-        setModulosConcluidos,
-      }}
-    >
+    <AuthContext.Provider value={{
+      usuarios,
+      setUsuarios,
+      usuarioLogado,
+      setUsuarioLogado,
+      interesses,
+      setInteresses: valor => atualizarCampo('interesses', valor),
+      modulosConcluidos,
+      setModulosConcluidos: valor => atualizarCampo('modulosConcluidos', valor),
+    }}>
       {children}
     </AuthContext.Provider>
   )
