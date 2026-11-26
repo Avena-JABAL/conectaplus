@@ -75,6 +75,7 @@ export const trilhas = [
     {
     id: 'educacao-financeira',
     titulo: 'Educação Financeira',
+    descricao: 'Aprenda a organizar seu dinheiro e planejar seu futuro.',
     },
 
 ]
