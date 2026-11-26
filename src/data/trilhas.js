@@ -74,6 +74,7 @@ export const trilhas = [
 
     {
     id: 'educacao-financeira',
+    titulo: 'Educação Financeira',
     },
 
 ]
