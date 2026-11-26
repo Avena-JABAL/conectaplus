@@ -5,7 +5,7 @@
     <a href="https://github.com/Avena-JABAL/conectaplus">
       <img src="https://img.shields.io/badge/GitHub-Reposit%C3%B3rio-101c62?style=for-the-badge&logo=github" alt="Repositório no GitHub">
     </a>
-    <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-5035f5?style=for-the-badge" alt="Projeto em desenvolvimento">
+    <img src="https://img.shields.io/badge/Status-Em%20homologa%C3%A7%C3%A3o-5035f5?style=for-the-badge" alt="Projeto em homologação">
     <img src="https://img.shields.io/badge/Projeto-Acad%C3%AAmico-101c62?style=for-the-badge" alt="Projeto acadêmico">
   </p>
 </div>
@@ -43,78 +43,66 @@ Desenvolver uma plataforma digital que facilite o acesso dos jovens a oportunida
 
 Criar um espaço acessível e acolhedor em que jovens possam apresentar seus interesses e habilidades, encontrar oportunidades locais, aprender, receber orientação e compartilhar iniciativas com a comunidade.
 
-## Funcionalidades previstas
+## Funcionalidades da versão candidata
 
-| Recurso | O que oferece |
-| --- | --- |
-| **Perfil do jovem** | Cadastro de interesses, habilidades e formação para apresentar objetivos e experiências. |
-| **Cursos e eventos** | Agenda de cursos, oficinas e eventos de capacitação. |
-| **Trilhas de aprendizado** | Percursos de desenvolvimento com certificações digitais e badges. |
-| **Fórum comunitário** | Espaço para troca de experiências e divulgação de iniciativas. |
+- Cadastro, login, recuperação de senha e logout simulados, com rotas protegidas.
+- Seis trilhas de aprendizagem com busca e conclusão de módulos.
+- Oportunidades fictícias com pesquisa, filtro por tipo e marcação de interesse.
+- Meu Espaço: acompanhamento do progresso e das oportunidades salvas.
+- Perfil editável com formação, interesses e habilidades.
+- Navegação adaptada para telas menores.
 
-
-### Como visualizar
-
-1. Faça o clone do repositório:
-
-   ```bash
-   git clone https://github.com/Avena-JABAL/conectaplus.git
-   ```
-
-2. Abra a pasta do projeto no VS Code.
-3. Instale as dependências exatamente como registradas no lockfile:
-
-   ```bash
-   npm ci
-   ```
-
-   Use `npm install` ao adicionar ou atualizar dependências.
-4. Inicie o servidor de desenvolvimento:
-
-   ```bash
-   npm run dev
-   ```
-
-   O Vite abrirá a página inicial em `http://localhost:5173/`.
-
-> Requisito: Node.js 20.19+ (ou 22.12+) e npm. O `package-lock.json` registra as dependências; `requirements.txt` não se aplica a este projeto JavaScript.
+**Limites:** protótipo acadêmico front-end, sem servidor de autenticação ou banco de dados. Use apenas dados fictícios. Cadastro, sessão, perfil e progresso ficam na memória durante a execução e são perdidos ao recarregar a página. A recuperação não envia e-mails; certificados, fórum e mentoria real não fazem parte desta versão.
 
 ## Tecnologias
 
-- **HTML5** — estrutura das páginas.
-- **CSS3** — estilos, cores e layouts responsivos.
-- **JavaScript** — pasta preparada para scripts do projeto.
-- **Vite** — servidor local de desenvolvimento.
+React, React Router, Context API, JavaScript, Vite, Tailwind CSS, CSS e Oxlint.
 
+## Instalação e execução
 
+Requisitos: Node.js 22.12+ (linha 22 ou superior compatível) e npm.
 
-## Semana 3 — Autenticação simulada
+```bash
+git clone https://github.com/Avena-JABAL/conectaplus.git
+cd conectaplus
+npm ci
+npm run dev
+```
 
-O fluxo usa formulários React e React Router. Cadastros fictícios e sessão ficam na memória da aplicação e são descartados ao recarregar a página. Use dados fictícios durante a demonstração.
+Abra a URL local informada pelo Vite (normalmente http://localhost:5173).
 
-| Entregável | Critério de aceitação |
+### Verificação e build
+
+```bash
+npm test
+npm run lint
+npm run build
+npm run preview
+```
+
+O build gera a pasta `dist/`. O comando preview permite verificar o build localmente.
+
+## Rotas
+
+| Rota | Acesso |
 | --- | --- |
-| Cadastro | Valida nome, e-mail, senha de pelo menos seis caracteres e confirmação. Recusa e-mail duplicado e encaminha cadastros válidos ao login. |
-| Login | Exibe erro para credenciais inválidas e abre a rota protegida solicitada ou a página de Trilhas quando as credenciais conferem. |
-| Recuperação de senha | Aceita um e-mail válido e confirma a simulação na interface. |
-| Área restrita | Trilhas, Meu Espaço e Perfil redirecionam ao login quando acessados sem sessão. Meu Espaço e Perfil ainda exibem telas provisórias. |
-| Logout | A ação Sair encerra a sessão e exibe a confirmação. Reabrir uma rota protegida exige login. |
+| / | Público |
+| /cadastro, /login, /recuperar-senha, /logoff | Público |
+| /trilhas, /trilhas/:id | Autenticado |
+| /oportunidades, /meu-espaco, /perfil | Autenticado |
 
-### Roteiro de demonstração
+## Deploy
 
-1. Abra `/perfil` sem sessão e confira o redirecionamento ao login.
-2. Em `/cadastro`, tente confirmar uma senha diferente e confira o erro. Em seguida, cadastre um nome fictício, o e-mail `demo@example.com` e a senha fictícia `teste123`.
-3. Tente entrar com uma senha incorreta. Depois entre com os dados cadastrados e confira a página de Trilhas.
-4. Use **Sair** e tente reabrir `/trilhas`. Confirme que o login é solicitado.
-5. Em **Esqueci minha senha**, envie um e-mail fictício e confira o aviso de simulação.
+O arquivo `vercel.json` configura o projeto Vite, o build, a pasta de saída e o redirecionamento de rotas da SPA. Importe o repositório na Vercel e utilize a branch main após aprovação. O endereço público será incluído aqui depois de confirmado o deploy.
 
-## Impacto esperado
+## Capturas de tela
 
-- Facilitar o acesso dos jovens a oportunidades locais.
-- Incentivar a aprendizagem contínua e o desenvolvimento de habilidades.
-- Aproximar jovens de mentores e da comunidade.
-- Apoiar o protagonismo juvenil e o empreendedorismo.
+Pendentes de execução em navegador. Registrar imagens reais da landing page, autenticação, trilhas, Meu Espaço, oportunidades e perfil, usando dados fictícios; incluir também uma captura móvel. Não utilizar mockups como evidência de execução.
+
+## Homologação e apresentação
+
+Veja [roteiro de testes e apresentação](docs/homologacao.md). Os testes automatizados cobrem isolamento dos dados por conta e consistência das trilhas; os fluxos completos precisam de validação em navegador antes da publicação da tag v1.0.0.
 
 ## Repositório
 
-[Acesse o Conecta+ no GitHub](https://github.com/Avena-JABAL/conectaplus)
+[Acesse o Conecta+ no GitHub](https://github.com/Avena-JABAL/conectaplus).
