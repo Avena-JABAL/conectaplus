@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import '../css/trilhas.css'
 
 export default function Perfil() {
-  const { usuarioLogado, setUsuarioLogado } = useAuth()
+  const { usuarioLogado, setUsuarioLogado, setUsuarios } = useAuth()
 
   const [nome, setNome] = useState(usuarioLogado?.nome || '')
   const [formacao, setFormacao] = useState(usuarioLogado?.formacao || '')
@@ -31,13 +31,16 @@ export default function Perfil() {
       return
     }
 
-    setUsuarioLogado((atual) => ({
-      ...atual,
+    const perfil = {
       nome: nome.trim(),
       formacao: formacao.trim(),
       interesses: interesses.trim(),
       habilidades: habilidades.trim(),
-    }))
+    }
+    setUsuarioLogado(atual => ({ ...atual, ...perfil }))
+    setUsuarios(atuais => atuais.map(usuario =>
+      usuario.email === usuarioLogado.email ? { ...usuario, ...perfil } : usuario
+    ))
 
     setMensagem('Perfil atualizado com sucesso!')
   }
