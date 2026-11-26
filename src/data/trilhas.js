@@ -71,18 +71,9 @@ export const trilhas = [
       'Construindo hábitos',
     ],
   },
-  {
+
+    {
     id: 'educacao-financeira',
-    titulo: 'Educação Financeira',
-    descricao: 'Aprenda a organizar seu dinheiro e planejar seu futuro.',
-    categoria: 'Finanças',
-    cor: 'card-cyan',
-    icone: 'fa-wallet',
-    modulos: [
-      'Organização financeira',
-      'Planejamento de gastos',
-      'Como economizar',
-      'Planejamento para o futuro',
-    ],
-  },
+    },
+
 ]
