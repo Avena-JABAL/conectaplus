@@ -79,11 +79,11 @@ export const trilhas = [
     categoria: 'Finanças',
     cor: 'card-cyan',
     icone: 'fa-wallet',
-        modulos: [
-      'Organização financeira',
-      'Planejamento de gastos',
-      'Como economizar',
-      'Planejamento para o futuro',
+    modulos: [
+        'Organização financeira',
+        'Planejamento de gastos',
+        'Como economizar',
+        'Planejamento para o futuro',
     ],
     },
 
