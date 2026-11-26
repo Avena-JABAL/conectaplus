@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar'
 import { trilhas } from '../data/trilhas'
 import { useAuth } from '../context/AuthContext'
 import '../css/trilhas.css'
+import '../css/funcionalidades.css'
 
 export default function TrilhaDetalhe() {
   const { id } = useParams()
