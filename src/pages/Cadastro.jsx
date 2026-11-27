@@ -12,18 +12,27 @@ export default function Cadastro() {
   const [senha, setSenha] = useState('')
   const [confirmarSenha, setConfirmarSenha] = useState('')
 
+  const [erro, setErro] = useState('')
   const { usuarios, setUsuarios } = useAuth()
 
   function cadastrar(e) {
     e.preventDefault()
 
-    if (senha !== confirmarSenha) {
-      alert('As senhas não são iguais!')
+    setErro('')
+
+    const nomeNormalizado = nome.trim()
+    if (!nomeNormalizado) {
+      setErro('Informe seu nome completo.')
       return
     }
 
-    if (senha.length < 6) {
-      alert('A senha deve ter pelo menos 6 caracteres!')
+    if (senha !== confirmarSenha) {
+      setErro('As senhas não são iguais!')
+      return
+    }
+
+    if (senha.trim().length < 6) {
+      setErro('A senha deve ter pelo menos 6 caracteres!')
       return
     }
 
@@ -34,26 +43,19 @@ export default function Cadastro() {
     )
 
     if (emailExiste) {
-      alert('Este e-mail já está cadastrado!')
+      setErro('Este e-mail já está cadastrado!')
       return
     }
 
     const novoUsuario = {
-      nome: nome.trim(),
+      nome: nomeNormalizado,
       email: emailNormalizado,
       senha,
     }
 
-    setUsuarios([...usuarios, novoUsuario])
+    setUsuarios((atuais) => [...atuais, novoUsuario])
 
-    alert('Cadastro realizado com sucesso!')
-
-    setName('')
-    setEmail('')
-    setSenha('')
-    setConfirmarSenha('')
-
-    navigate('/login')
+    navigate('/login', { replace: true, state: { cadastroConcluido: true } })
   }
 
   return (
@@ -64,6 +66,7 @@ export default function Cadastro() {
       quote="Juntos por mais oportunidades!"
     >
       <form onSubmit={cadastrar}>
+        <p>Use um e-mail e uma senha fictícios para testar o cadastro.</p>
         <Field
           id="nome"
           label="Nome completo"
@@ -105,6 +108,7 @@ export default function Cadastro() {
           onChange={(e) => setConfirmarSenha(e.target.value)}
         />
 
+        {erro && <p className="form-error" role="alert">{erro}</p>}
         <button type="submit" className="button">
           Cadastrar
         </button>

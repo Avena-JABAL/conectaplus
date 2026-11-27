@@ -1,0 +1,28 @@
+/* Ajustes de navegação e responsividade das páginas autenticadas. */
+.app-container .main-content { min-width: 0; }
+.app-container .search-bar { max-width: 100%; min-width: 0; }
+.app-container .search-bar input { min-width: 0; }
+.app-container .cards-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.app-container .card { min-width: 0; overflow-wrap: anywhere; }
+.app-container .profile-field { min-width: 0; }
+.app-container .profile-heading > div:last-child { min-width: 0; }
+.app-container .dashboard-trail-progress { flex-shrink: 0; max-width: 100%; }
+.app-container .nav-item:focus-visible,
+.app-container button:focus-visible,
+.app-container a:focus-visible { outline: 2px solid #5035f5; outline-offset: 3px; }
+@media (max-width: 1024px) {
+  .app-container .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .app-container { display: block; height: auto; min-height: 100vh; }
+  .app-container .sidebar { display: flex; width: 100%; padding: 12px; border-right: 0; border-bottom: 1px solid #eee; }
+  .app-container .sidebar .logo { margin: 0 0 12px; }
+  .app-container .nav-menu { display: flex; flex-direction: row; flex-wrap: wrap; gap: 5px; }
+  .app-container .nav-item { padding: 9px; gap: 7px; font-size: 13px; }
+  .app-container .nav-footer { margin-top: 10px; padding-top: 8px; }
+  .app-container .main-content { padding: 18px 14px; overflow: visible; }
+  .app-container .top-header { gap: 12px; margin-bottom: 24px; }
+  .app-container .user-actions { flex-shrink: 0; }
+  .app-container .cards-grid { grid-template-columns: 1fr; }
+  .app-container .dashboard-section-heading { flex-wrap: wrap; }
+}
