@@ -11,6 +11,10 @@
 </div>
 
 ---
+## Versão
+
+**Conecta+ v1.0.0**
+
 
 ## Integrantes do projeto
 
