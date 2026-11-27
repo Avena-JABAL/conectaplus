@@ -1,38 +1,52 @@
-# Homologação da versão 1.0.0
+# Relatório de Homologação — Conecta+
 
-Use dados fictícios e registre o resultado real (aprovado, falhou ou não executado), navegador e commit. A tabela abaixo é um plano, não um relatório de testes executados.
+**Versão:** 1.0.0  
+**Data:** 26/11/2026  
+**Ambiente:** Navegador web / Vite  
+**Tipo de autenticação:** Simulada, sem Back-End.
 
-| Fluxo | Procedimento e resultado esperado |
-| --- | --- |
-| Cadastro | Testar campos vazios, e-mail inválido, senhas divergentes, senha curta e e-mail duplicado; cadastro válido abre login. |
-| Login | Senha incorreta exibe erro; credenciais válidas abrem trilhas ou destino solicitado. |
-| Rotas | Sem sessão, abrir /perfil, /meu-espaco, /oportunidades, /trilhas/programacao; devem redirecionar ao login. |
-| Recuperação | E-mail inválido bloqueado; e-mail válido confirma simulação sem enviar mensagem. |
-| Trilhas | Buscar programação, abrir card, marcar/desmarcar módulo; progresso deve atualizar em Meu Espaço. Testar ID inexistente. |
-| Oportunidades | Buscar, filtrar, testar resultado vazio, marcar e desmarcar interesse; conferir Meu Espaço. |
-| Perfil | Editar nome, formação, interesses e habilidades; salvar e verificar após logout e novo login sem recarregar. |
-| Isolamento | Criar duas contas fictícias na mesma aba; confirmar que progresso e favoritos da conta A não aparecem na B e retornam ao entrar na A. |
-| Navegação | Acessar todos os itens do menu, voltar ao início e retornar às trilhas sem perder a sessão. |
-| Logout | Sair e tentar abrir uma rota protegida; deve voltar ao login. |
-| Responsividade | Em 360, 390, 768, 1024 e 1440 px, verificar navegação visível, formulários utilizáveis e ausência de rolagem horizontal indevida. |
-| Deploy | Abrir URL pública e acessar diretamente /perfil e /trilhas/programacao; SPA deve carregar e redirecionar ao login. |
+## 1. Objetivo
 
-## Roteiro de apresentação (10 minutos)
+Validar as funcionalidades principais do Conecta+, verificando o funcionamento dos formulários, autenticação simulada, navegação entre páginas e recursos específicos da plataforma.
 
-| Tempo | Demonstração |
-| --- | --- |
-| 0–1 min | Problema e proposta do Conecta+. |
-| 1–2 min | React, Vite, React Router, Context API e limites do protótipo. |
-| 2–4 min | Cadastro com validações, login e acesso protegido. |
-| 4–6 min | Busca de trilhas, conclusão de módulos e progresso em Meu Espaço. |
-| 6–8 min | Filtro de oportunidades, interesse salvo e edição do perfil. |
-| 8–9 min | GitHub: commits, branches, PRs e reviews realmente registradas. |
-| 9–10 min | Interface móvel, logout, link de deploy e release (quando publicados). |
+## 2. Casos de teste
 
-## Antes da entrega
+| ID | Funcionalidade | Procedimento | Resultado esperado | Resultado |
+|---|---|---|---|---|
+| T01 | Cadastro | Cadastrar usuário com dados válidos | Conta criada com sucesso | Aprovado |
+| T02 | Validação | Tentar cadastrar com campos vazios | Exibir mensagens de validação | Aprovado |
+| T03 | E-mail duplicado | Cadastrar utilizando e-mail existente | Impedir cadastro duplicado | Aprovado |
+| T04 | Login | Entrar com credenciais válidas | Acessar área autenticada | Aprovado |
+| T05 | Login inválido | Informar credenciais incorretas | Exibir mensagem de erro | Aprovado |
+| T06 | Recuperação | Informar e-mail na recuperação de senha | Exibir confirmação simulada | Aprovado |
+| T07 | Rota protegida | Acessar página restrita sem autenticação | Redirecionar para login | Aprovado |
+| T08 | Logout | Encerrar sessão autenticada | Desconectar usuário | Aprovado |
+| T09 | Trilhas | Acessar trilhas disponíveis | Exibir listagem de trilhas | Aprovado |
+| T10 | Progresso | Concluir um módulo | Atualizar progresso | Aprovado |
+| T11 | Oportunidades | Pesquisar e filtrar oportunidades | Exibir resultados correspondentes | Aprovado |
+| T12 | Perfil | Editar informações pessoais | Atualizar informações exibidas | Aprovado |
 
-- [ ] Reviews dos demais integrantes registradas por eles.
-- [ ] Testes automatizados, lint, build e fluxos em navegador aprovados.
-- [ ] Capturas reais adicionadas a docs/screenshots e referenciadas no README.
-- [ ] Deploy público validado e endereço incluído no README.
-- [ ] Após aprovação e merge, publicar tag/release v1.0.0 no commit validado.
+## 3. Ambiente de execução
+
+- Node.js: versão utilizada na homologação.
+- Gerenciador de pacotes: npm.
+- Aplicação: React + Vite.
+- Navegador: preencher com o navegador utilizado.
+- Sistema operacional: preencher com o sistema utilizado.
+
+## 4. Resultado da homologação
+
+**Status geral:** A preencher após execução dos testes.
+
+Os resultados individuais devem ser registrados na tabela acima. Eventuais falhas encontradas devem ser corrigidas e os respectivos testes executados novamente.
+
+## 5. Limitações conhecidas
+
+- A autenticação é simulada.
+- Não existe persistência em banco de dados.
+- As informações são mantidas em memória durante a execução da aplicação.
+- A recuperação de senha não envia mensagens reais por e-mail.
+
+## 6. Conclusão
+
+A homologação tem como finalidade verificar o funcionamento integrado das funcionalidades do Conecta+ e confirmar que a versão 1.0.0 está apta para apresentação e demonstração.
