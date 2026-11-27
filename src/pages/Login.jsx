@@ -33,8 +33,6 @@ export default function Login() {
     navigate(state?.destino ?? '/trilhas', { replace: true })
   }
 
-
-
   return (
     <AuthLayout
       title="Olá de novo!"

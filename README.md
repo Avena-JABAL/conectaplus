@@ -5,7 +5,7 @@
     <a href="https://github.com/Avena-JABAL/conectaplus">
       <img src="https://img.shields.io/badge/GitHub-Reposit%C3%B3rio-101c62?style=for-the-badge&logo=github" alt="Repositório no GitHub">
     </a>
-    <img src="https://img.shields.io/badge/Status-Em%20homologa%C3%A7%C3%A3o-5035f5?style=for-the-badge" alt="Projeto em homologação">
+    <img src="https://img.shields.io/badge/Status-Concluído-228B22?style=for-the-badge" alt="Projeto concluído">
     <img src="https://img.shields.io/badge/Projeto-Acad%C3%AAmico-101c62?style=for-the-badge" alt="Projeto acadêmico">
   </p>
 </div>
@@ -43,66 +43,223 @@ Desenvolver uma plataforma digital que facilite o acesso dos jovens a oportunida
 
 Criar um espaço acessível e acolhedor em que jovens possam apresentar seus interesses e habilidades, encontrar oportunidades locais, aprender, receber orientação e compartilhar iniciativas com a comunidade.
 
-## Funcionalidades da versão candidata
+## Funcionalidades do projeto
 
-- Cadastro, login, recuperação de senha e logout simulados, com rotas protegidas.
-- Seis trilhas de aprendizagem com busca e conclusão de módulos.
-- Oportunidades fictícias com pesquisa, filtro por tipo e marcação de interesse.
-- Meu Espaço: acompanhamento do progresso e das oportunidades salvas.
-- Perfil editável com formação, interesses e habilidades.
-- Navegação adaptada para telas menores.
+O Conecta+ reúne funcionalidades voltadas ao desenvolvimento pessoal e profissional dos jovens:
 
-**Limites:** protótipo acadêmico front-end, sem servidor de autenticação ou banco de dados. Use apenas dados fictícios. Cadastro, sessão, perfil e progresso ficam na memória durante a execução e são perdidos ao recarregar a página. A recuperação não envia e-mails; certificados, fórum e mentoria real não fazem parte desta versão.
+| Funcionalidade | Descrição |
+|---|---|
+| **Cadastro e autenticação** | Cadastro, login, recuperação de senha e logout simulados. |
+| **Rotas protegidas** | Controle de acesso às páginas restritas para usuários autenticados. |
+| **Trilhas de aprendizagem** | Acesso a seis trilhas, busca por conteúdos e acompanhamento da conclusão dos módulos. |
+| **Oportunidades** | Visualização de oportunidades fictícias, pesquisa, filtros por tipo e marcação de interesse. |
+| **Meu Espaço** | Acompanhamento do progresso nas trilhas e visualização das oportunidades salvas. |
+| **Perfil** | Edição de informações relacionadas à formação, interesses e habilidades. |
+| **Responsividade** | Interface adaptada para diferentes tamanhos de tela. |
 
-## Tecnologias
+## Recursos do React aplicados
 
-React, React Router, Context API, JavaScript, Vite, Tailwind CSS, CSS e Oxlint.
+Durante o desenvolvimento do Conecta+, foram utilizados recursos do React para organizar os componentes, controlar os dados e criar interações na interface.
+
+| Recurso | Aplicação no projeto |
+|---|---|
+| **Componentes** | Organização da interface em partes reutilizáveis. |
+| **Props** | Compartilhamento de informações entre componentes. |
+| **useState** | Controle de estados, como dados dos formulários, filtros e interações. |
+| **Context API** | Compartilhamento de informações de autenticação entre diferentes partes da aplicação. |
+| **React Router** | Gerenciamento da navegação entre páginas e implementação de rotas protegidas. |
+| **Renderização dinâmica** | Exibição de listas e informações de acordo com os dados disponíveis. |
+| **Eventos e formulários** | Captura de informações digitadas e execução de ações do usuário. |
+
+## Impacto esperado
+
+O Conecta+ busca ampliar o acesso dos jovens a oportunidades de desenvolvimento pessoal e profissional, contribuindo para a construção de um futuro com mais possibilidades.
+
+Por meio da plataforma, esperamos:
+
+- **Ampliar o acesso à informação:** facilitar a busca por oportunidades de emprego, capacitação e aprendizagem.
+- **Incentivar o desenvolvimento profissional:** estimular os jovens a desenvolver habilidades e conhecimentos importantes para o mercado de trabalho.
+- **Promover a inclusão:** aproximar jovens de diferentes realidades de oportunidades de crescimento.
+- **Estimular o protagonismo juvenil:** incentivar os usuários a assumirem um papel ativo na construção de suas trajetórias.
+- **Fortalecer conexões:** aproximar jovens de oportunidades, projetos e iniciativas que possam contribuir para seu desenvolvimento.
+
+## Limites do protótipo
+
+O Conecta+ foi desenvolvido como um protótipo acadêmico, com foco na demonstração das funcionalidades e da navegação da plataforma. Por isso, apresenta algumas limitações:
+
+- **Sem banco de dados:** as informações são armazenadas temporariamente durante a utilização da aplicação.
+- **Autenticação simulada:** o cadastro e o login não utilizam um servidor de autenticação real.
+- **Dados fictícios:** as oportunidades e informações apresentadas são utilizadas apenas para demonstração.
+- **Recuperação de senha simulada:** o sistema não envia e-mails para redefinição de senha.
+- **Dados temporários:** informações de cadastro, perfil e progresso podem ser perdidas ao atualizar ou fechar a página.
+- **Funcionalidades futuras:** recursos como emissão de certificados, fórum e mentoria real não fazem parte desta versão.
+
+Essas limitações representam possibilidades de evolução para versões futuras do Conecta+.
+
+## Tecnologias utilizadas
+
+- **React:** construção da interface e organização dos componentes.
+- **React Router:** gerenciamento da navegação entre páginas.
+- **Context API:** compartilhamento de estados entre componentes.
+- **JavaScript:** implementação da lógica e interatividade.
+- **Vite:** ferramenta de desenvolvimento e construção da aplicação.
+- **Tailwind CSS:** estilização da interface.
+- **CSS:** personalização dos estilos e layouts.
+- **Oxlint:** análise estática do código.
 
 ## Instalação e execução
 
-Requisitos: Node.js 22.12+ (linha 22 ou superior compatível) e npm.
+### Requisitos
+
+- Node.js 22.12 ou superior.
+- npm.
+
+### 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/Avena-JABAL/conectaplus.git
+```
+
+### 2. Entrar na pasta do projeto
+
+```bash
 cd conectaplus
+```
+
+### 3. Instalar as dependências
+
+```bash
 npm ci
+```
+
+### 4. Executar o projeto
+
+```bash
 npm run dev
 ```
 
-Abra a URL local informada pelo Vite (normalmente http://localhost:5173).
+Abra no navegador a URL local informada pelo Vite, normalmente:
 
-### Verificação e build
+[http://localhost:5173](http://localhost:5173)
+
+## Verificação e construção
+
+Para executar as verificações do projeto, utilize:
+
+**Testes automatizados:**
 
 ```bash
 npm test
+```
+
+**Análise de código:**
+
+```bash
 npm run lint
+```
+
+**Construção da aplicação:**
+
+```bash
 npm run build
+```
+
+**Visualização da versão construída:**
+
+```bash
 npm run preview
 ```
 
-O build gera a pasta `dist/`. O comando preview permite verificar o build localmente.
+O comando `npm run build` gera a pasta `dist/`, contendo os arquivos de produção. O comando `npm run preview` permite verificar localmente a versão construída.
 
 ## Rotas
 
 | Rota | Acesso |
-| --- | --- |
-| / | Público |
-| /cadastro, /login, /recuperar-senha, /logoff | Público |
-| /trilhas, /trilhas/:id | Autenticado |
-| /oportunidades, /meu-espaco, /perfil | Autenticado |
-
-## Deploy
-
-O arquivo `vercel.json` configura o projeto Vite, o build, a pasta de saída e o redirecionamento de rotas da SPA. Importe o repositório na Vercel e utilize a branch main após aprovação. O endereço público será incluído aqui depois de confirmado o deploy.
+|---|---|
+| `/` | Público |
+| `/cadastro` | Público |
+| `/login` | Público |
+| `/recuperar-senha` | Público |
+| `/logoff` | Público |
+| `/trilhas` | Autenticado |
+| `/trilhas/:id` | Autenticado |
+| `/oportunidades` | Autenticado |
+| `/meu-espaço` | Autenticado |
+| `/perfil` | Autenticado |
 
 ## Capturas de tela
 
-Pendentes de execução em navegador. Registrar imagens reais da landing page, autenticação, trilhas, Meu Espaço, oportunidades e perfil, usando dados fictícios; incluir também uma captura móvel. Não utilizar mockups como evidência de execução.
+Esta seção apresenta as principais telas da aplicação, demonstrando a interface e as funcionalidades desenvolvidas.
+
+**Landing Page**
+
+![Landing Page](src/images/screenshots/landing-page.png)
+
+**Cadastro**
+
+![Cadastro](src/images/screenshots/cadastro.png)
+
+**Login**
+
+![Login](src/images/screenshots/login.png)
+
+
+**Trilhas de Aprendizagem**
+
+![Trilhas](src/images/screenshots/trilhas.png)
+
+**Oportunidades**
+
+![Oportunidades](src/images/screenshots/oportunidades.png)
+
+**Meu Espaço**
+
+![Meu Espaço](src/images/screenshots/meu-espaco.png)
+
+**Perfil**
+
+![Perfil](src/images/screenshots/perfil.png)
+
+
+## Implantação
+
+O Conecta+ está publicado por meio da plataforma Vercel.
+
+**Acesse a aplicação:** [https://conectaplus-dusky.vercel.app/](https://conectaplus-dusky.vercel.app/)
+
+O arquivo `vercel.json` configura a implantação do projeto, incluindo o processo de build, a pasta de saída e o redirecionamento das rotas da aplicação.
+
 
 ## Homologação e apresentação
 
-Veja [roteiro de testes e apresentação](docs/homologacao.md). Os testes automatizados cobrem isolamento dos dados por conta e consistência das trilhas; os fluxos completos precisam de validação em navegador antes da publicação da tag v1.0.0.
+O Conecta+ passou pela validação das principais funcionalidades e fluxos de navegação da plataforma.
 
-## Repositório
+Foram verificados os seguintes aspectos:
 
-[Acesse o Conecta+ no GitHub](https://github.com/Avena-JABAL/conectaplus).
+- Cadastro e login simulados.
+- Recuperação de senha e logout.
+- Proteção das rotas restritas.
+- Navegação entre as páginas.
+- Pesquisa e filtros de oportunidades.
+- Busca e conclusão de módulos das trilhas.
+- Edição de perfil.
+- Acompanhamento do progresso em Meu Espaço.
+- Responsividade da interface.
+
+Os testes automatizados verificam aspectos como o isolamento dos dados por conta e a consistência das trilhas. Os fluxos principais também foram validados no navegador.
+
+O roteiro de testes e apresentação está disponível em [docs/homologacao.md](docs/homologacao.md).
+
+
+## Repositórios e links
+
+- **GitHub:** [Acesse o repositório do Conecta+](https://github.com/Avena-JABAL/conectaplus)
+- **Aplicação publicada:** [Acesse o Conecta+](https://conectaplus-dusky.vercel.app/)
+
+---
+
+<div align="center">
+
+**Conecta+ — conexões que aproximam jovens de novas oportunidades.**
+
+</div>
